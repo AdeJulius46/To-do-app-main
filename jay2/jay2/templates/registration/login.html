@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hi! Log in Here.</title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static './main-css/other_pages_styles.css' %}" />
+        <link rel="stylesheet" href="{% static './css/bootstrap.css' %}" />
+
+    </head>
+    <body>
+        <section class="container">
+            <nav class="navbar navbar-expand-lg" style="background-color: white;">
+                <div class="container-fluid">
+                <a class="navbar-brand"  href="./index.html"><img src={% static "./images/Group 6.png" %} style="width:200px;" class="img-fluid" alt=""></a>
+                </div>
+            </nav>  
+            <div id="sign-in" class="row" >
+                <div class=" col-sm-6 p-5 details">
+                    <form id="sign-in-form" class="form" method="post">
+                        <h3>Sign In</h3>
+                        {% csrf_token %}
+                        {{form.username}}
+                        {{form.password}}
+                        <p><input type="checkbox" name="Agreement" class="agreement">I agree to the Terms of Service and Privacy & Security Policy</p>
+                        <div>
+                            <input type="submit" value="Sign-in"></input>
+                        </div>
+                    </form>
+                    <h5>
+                        <a href="{% url 'password_reset' %}" target="_blank" class="fgt">Forgotten Password?</a> Don't have an account? 
+                        <a href="{% url 'signup' %}" target="_blank">Sign-up</a>
+                    </h5>
+                    <div class="sign-in-buttons btns">
+                        <a href=""target="_blank"><button type="submit" class="google">Continue With Google</button></a>
+
+                        <a href="" target="_blank"><button type="submit" class="facebook">Continue With Facebook</button></a>
+
+                        <a href="" target="_blank"><button type="submit" class="Apple">Continue With Apple</button></a>
+                    </div>
+                </div>
+                <div class="col-sm-6 p-5">
+                    <div>
+                        <img src={% static "./IMGS/sign-in.png" %} class="img-fluid" alt="A lady signing in on her mobile device ">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

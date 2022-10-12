@@ -1,0 +1,16 @@
+{% extends 'dashboard-main.html' %}
+{% block title %} Welcome to your dashboard!!! {% endblock title %}
+
+{% block body_content %}
+{% load static %}
+<div class="content">
+    <h3>Today</h3>
+    <h5><a href="{% url 'task' %}" target="_parent"><span>&plus;</span> Create task</a></h5>
+    <aside>
+        <img src={% static 'IMGS/calendar.jpeg' %} alt="A picture of a calender" width="144px" height="117px">
+        <h4>No task created yet</h4>
+        <h6>Tap the + button to create a task</h6>
+    </aside>
+</div>
+{% endblock body_content %}
+    

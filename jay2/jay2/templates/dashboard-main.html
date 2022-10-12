@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock title%}</title>
+    
+    {% load static %}
+    <link href="{% static './css2/all.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static './main-css/other_pages_styles2.css' %}">
+    <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
+</head>
+<body>
+    <nav class="main-nav">
+        <a href="{% url 'index' %}">
+            <div class="logo-image">
+                <img src="{% static 'IMGS/white logo.png' %}" alt="Todo logo">
+            </div>
+        </a>
+        <div class="search">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="reminder">
+            <a href="http://" target="_blank"><i class="fa-solid fa-bell"></i></a>
+        </div>
+        <div class="profile-picture">
+            <img src="{% static './IMGS/pp.jpg' %}" alt="My Profile picture" height="35px" width="35px">
+            <div class="dropdown-content">
+                <p><a href="">Change Password</a></p>
+                <p><a href="">Profile Picture</a></p>
+            </div>
+        </div>
+    </nav>
+    <section>
+        <div class="menus">
+            <div class="my-task {% block task %}{% endblock task %}">
+                <i class="fa-solid fa-clipboard"></i> 
+                <h4><a href="{% url 'task' %}" target="_parent">My task</a></h4>
+            </div>
+            <div class="today {% block today %}{% endblock today %}">
+                <i class="fa-solid fa-calendar-day"></i>
+                <h4><a href="{% url 'today' %}" target="_parent">Today</a></h4>
+            </div> 
+            <div class="upcoming {% block upcoming %}{% endblock upcoming %}">
+                <i class="fa-solid fa-hard-drive"></i>
+                <h4><a href="{% url 'upcoming' %}" target="_parent">Upcoming</a></h4>
+            </div> 
+            <div class="overdue {% block overdue %}{% endblock overdue %}">
+                <i class="fa-solid fa-clipboard-check"></i>
+                <h4><a href="{% url 'overdue' %}" target="_parent">Overdue</a></h4>
+            </div> 
+            <div class="category">
+                <i class="fa-brands fa-windows"></i>
+                <h4><a href="" target="_parent">Category</a></h4>
+                <h6><a href="" target="_parent"> &plus;</a></h6>
+            </div>
+            <div class="archived {% block archive %}{% endblock archive %}">
+                <i class="fa-solid fa-box-archive"></i>
+                <h4><a href="{% url 'archive' %}" target="_parent">Archived tasks</a></h4>
+            </div>
+        </div>
+        {% block body_content %}
+            
+        {% endblock body_content %}
+    </section>
+    {% block js_content %} {% endblock js_content %}
+</body>
+</html>

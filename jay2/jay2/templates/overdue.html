@@ -1,0 +1,40 @@
+{% extends 'dashboard-main.html' %}
+{% block title %} Your Overdue Tasks!!! {% endblock title %}
+
+{% block overdue %} current {% endblock overdue %}
+
+{% block body_content %}
+{% load static %}
+<div class="content create">
+    <h3>Overdue</h3>
+    <div class="todos">
+        <ul id="taski"> </ul>
+        <h5  id="create" class="hi" ><span>&plus;</span> Create task</h5>
+    </div>
+
+    <div id="modal-containert">
+        <div id="modale">       
+            <div id="box">
+                <p class="fs-4">Add Topic<p>
+                <input type="text" name="details" id="topic-input" required placeholder="Play">
+                <p id="msg"></p>
+                <p class="fs-4">Date</p>
+                <input class="input" type="date" name="date" id="date-input">
+                <p class="fs-4">Description</p>
+                <input type="text" name="details" id="text-input" required placeholder="e.g. Meeting with Sefunmi at 8pm #work">
+                <div>
+                    <a href="" target="_top"><h4 class="desc"><i class="fa-solid fa-calendar-day"></i>Today</h4></a>
+                    <a href="" target="_blank"><h4 class="desc"><i class="fa-brands fa-windows"></i>Category</h4></a>
+                    <a href="" target="_blank"><i class="fa-solid fa-business-time"></i></a>
+                </div>
+                <div class="btns">
+                    <button type="button" id="cancel">Cancel</button>
+                    <button type="button" id="add-task">Add Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body_content %}
+
+{% block js_content %} <script src="{% static 'js2/overdue.js' %}"></script> {% endblock js_content %}
